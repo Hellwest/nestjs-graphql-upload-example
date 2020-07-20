@@ -1,0 +1,19 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type PlaceholderType {
+  placeholder: String!
+}
+
+type Query {
+  placeholder: PlaceholderType!
+}
+
+type Mutation {
+  """Upload a file"""
+  uploadFile(file: Upload!): Upload
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload

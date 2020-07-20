@@ -1,0 +1,40 @@
+<!-- USELESS FILE - I found no way to make a valid POST request - use Postman as described in README -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>"test"</title>
+  </head>
+  <body>
+    <form enctype="multipart/form-data">
+      <input type="file" name="fileToUpload" id="fileToUpload" onchange="sendFile(this);">
+      <input type="submit" value="Upload image", name="submit">
+    </form>
+  </body>
+
+  <script>
+    // const button = document.querySelector("submit")
+
+    // const myFirstXHR = new XMLHttpRequest()
+
+    // button.addEventListener("click", () => {
+    //   const file = document.querySelector("fileToUpload")
+    //   const filesw = file.nodeValue
+
+    //   myFirstXHR.open()
+    //   myFirstXHR.send()
+    // })
+
+    const sendFile = (input) => {
+      const file = document.getElementById("fileToUpload")
+
+      const myFirstXHR = new XMLHttpRequest()
+      const formData = new FormData()
+      formData.append("file", file.files)
+
+      myFirstXHR.open("POST", "http://localhost:5000/graphql", true)
+      myFirstXHR.setRequestHeader("Content-Type", "multipart/form-data")
+
+      myFirstXHR.send(formData)
+    }
+  </script>
+</html>
